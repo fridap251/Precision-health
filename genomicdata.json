@@ -1,0 +1,87 @@
+"name": "GenomicData",
+  "description": "Genomic analysis data for precision health",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Reference to patient record"
+    },
+    "test_date": {
+      "type": "string",
+      "description": "Date of genomic testing"
+    },
+    "test_type": {
+      "type": "string",
+      "description": "Type of genomic test (whole genome, exome, panel)"
+    },
+    "ancestry": {
+      "type": "object",
+      "description": "Genetic ancestry breakdown",
+      "properties": {
+        "european": {"type": "number"},
+        "african": {"type": "number"},
+        "asian": {"type": "number"},
+        "native_american": {"type": "number"},
+        "other": {"type": "number"}
+      }
+    },
+    "disease_risk_variants": {
+      "type": "array",
+      "description": "Disease-associated genetic variants",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gene": {"type": "string"},
+          "variant": {"type": "string"},
+          "disease": {"type": "string"},
+          "risk_level": {"type": "string"},
+          "confidence": {"type": "number"}
+        }
+      }
+    },
+    "pharmacogenomics": {
+      "type": "array",
+      "description": "Drug response predictions",
+      "items": {
+        "type": "object",
+        "properties": {
+          "drug": {"type": "string"},
+          "response": {"type": "string"},
+          "dosage_recommendation": {"type": "string"}
+        }
+      }
+    },
+    "carrier_status": {
+      "type": "array",
+      "description": "Carrier status for genetic conditions",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": {"type": "string"},
+          "status": {"type": "string"},
+          "inheritance_pattern": {"type": "string"}
+        }
+      }
+    },
+    "polygenic_scores": {
+      "type": "object",
+      "description": "Polygenic risk scores for complex diseases",
+      "properties": {
+        "cardiovascular_disease": {"type": "number"},
+        "diabetes_type2": {"type": "number"},
+        "alzheimers": {"type": "number"},
+        "cancer_breast": {"type": "number"},
+        "cancer_prostate": {"type": "number"},
+        "depression": {"type": "number"}
+      }
+    },
+    "quality_metrics": {
+      "type": "object",
+      "description": "Sequencing quality metrics",
+      "properties": {
+        "coverage": {"type": "number"},
+        "quality_score": {"type": "number"},
+        "variants_called": {"type": "number"}
+      }
+    }
+  }
+}
